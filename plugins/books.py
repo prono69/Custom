@@ -26,19 +26,14 @@ cxc = [
                },
                )
 async def bookdl(message: Message):
+    book = message.input_or_reply_str
     pablo = await message.edit("`Please Wait!`")
-    book = message.input_str
     if not book:
         await pablo.edit("`Please Give Me A Valid Input. You Can Check Help Menu To Know More!`", del_in=3)
         return
     lin = "https://b-ok.cc/s/"
     text = book
     link = lin + text
-
-    headers = [
-        "User-Agent",
-        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:74.0) Gecko/20100101 Firefox/74.0",
-    ]
     page = requests.get(link)
     soup = BeautifulSoup(page.content, "html.parser")
     f = open("book.txt", "w")
@@ -53,7 +48,6 @@ async def bookdl(message: Message):
             for td in tr.find_all("h3"):
                 for ts in td.find_all("a"):
                     title = ts.get_text()
-                    lool + 1
                 for ts in td.find_all("a",
                                       attrs={"href": re.compile("^/book/")}):
                     ref = ts.get("href")

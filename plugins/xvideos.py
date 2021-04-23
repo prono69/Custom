@@ -25,7 +25,7 @@ async def xvid(message:Message):
         for a in soups.find_all('a', href=True):
             link = a["href"]
         await editer.edit(f"HERE IS YOUR LINK:\n`{link}`")
-    except:
+    except Exception:
         await editer.edit("Something went wrong", del_in=3)
 
 
@@ -59,6 +59,6 @@ async def xvidsearch(message: Message):
         await editer.edit(f"<b>Search Query:</b> <code>{msg}</code>\n\n" + links,parse_mode="HTML", disable_web_page_preview=True)
 
 
-    except:
+    except Exception:
          await editer.edit("**Something Went Wrong**", del_in=3)
          

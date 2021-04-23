@@ -43,7 +43,6 @@ async def create_html_or_img(file, force_html=False):
     file_z = file_t.readlines()
     if len(file_z) >= 79:
         force_html = True
-    if force_html:
         file_name = "code.html"
         await runcmd(f"pygmentize -f html -O full -o {file_name} {file}")
         return file_name
