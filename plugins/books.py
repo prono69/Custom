@@ -1,12 +1,9 @@
 # Kanged from FridayUB for Userge by @kirito6969
 
 import os
-import random
 import re
-import time
 
 import requests
-import wget
 from bs4 import BeautifulSoup
 from userge import userge, Message
 
