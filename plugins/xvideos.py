@@ -57,7 +57,6 @@ async def xvidsearch(message: Message):
 
             links += f"<a href='https://www.xvideos.com{link}'>• {semd.upper()}</a>\n"
         await editer.edit(f"<b>Search Query:</b> <code>{msg}</code>\n\n" + links,parse_mode="HTML", disable_web_page_preview=True)
-        await message.delete()
 
 
     except:
