@@ -9,7 +9,7 @@
 import os
 from pygments import highlight
 from pygments.lexers import guess_lexer
-from pygments.formatters import HtmlFormatter, JpgImageFormatter
+from pygments.formatters import JpgImageFormatter
 from userge.utils import runcmd
 from userge import userge, Message
 

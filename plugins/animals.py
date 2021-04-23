@@ -1,6 +1,4 @@
 """Random animal pics :) made by @kirito6969"""
-
-import asyncio
 import re
 import aiohttp
 import nekos
