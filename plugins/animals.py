@@ -42,7 +42,7 @@ animals_data = {
         "key": "link"},
 }
 
-animals = [x for x in animals_data]
+animals = list(animals_data)
 
 
 async def prep_animal_image(animal_data):
