@@ -36,7 +36,7 @@ async def bookdl(message: Message):
     link = lin + text
     page = requests.get(link)
     soup = BeautifulSoup(page.content, "html.parser")
-    f = with open("book.txt", "w")
+    f = open("book.txt", "w")
     total = soup.find(class_="totalCounter")
     for nb in total.descendants:
         nbx = nb.replace("(", "").replace(")", "")
