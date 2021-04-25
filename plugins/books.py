@@ -36,14 +36,13 @@ async def bookdl(message: Message):
     link = lin + text
     page = requests.get(link)
     soup = BeautifulSoup(page.content, "html.parser")
-    f = open("book.txt", "w")
+    f = with open("book.txt", "w")
     total = soup.find(class_="totalCounter")
     for nb in total.descendants:
         nbx = nb.replace("(", "").replace(")", "")
     if nbx == "0":
         await pablo.edit("No Books Found with that name.", del_in=3)
     else:
-        lool = 0
         for tr in soup.find_all("td"):
             for td in tr.find_all("h3"):
                 for ts in td.find_all("a"):
