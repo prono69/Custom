@@ -59,7 +59,7 @@ async def prep_animal_image(animal_data):
 async def animal_image(message: Message):
     lol = message.input_str
     reply = message.reply_to_message
-    reply_id = reply.message_id if reply else message.message_id
+    reply_id = reply.message_id if reply else None
     if not lol:
         await message.edit("Bruh You hab to gib me animal name :)", del_in=4)
         return
@@ -91,7 +91,7 @@ async def fact(message: Message):
         except Exception:
             await message.edit("```The fact API could not be reached rn```", del_in=3)
         else:
-            await message.edit(f"<u><i>{cmd}</u></i>\n\n`{fact_text}`")
+            await message.reply(f"<u><i>{cmd}</u></i>\n\n`{fact_text}`")
     else:
         await message.edit("`Unsupported animal...`", del_in=3)
 
