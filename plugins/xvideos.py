@@ -6,10 +6,10 @@ import bs4
 from userge import userge, Message
 
 
-@userge.on_cmd("xvideos", about={
+@userge.on_cmd("xvdo", about={
     'header': "Get Sax from xvideos",
     'description': "Get free Sax Videos",
-    'usage': "{tr}xvideo xvideo_link"})
+    'usage': "{tr}xvdo (xvideo_link)"})
 async def xvid(message:Message):
     editer= await message.edit("`Please Wait.....`")
     msg = message.input_or_reply_str

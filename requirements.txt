@@ -1,2 +1,0 @@
-html5lib
-beautifulsoup4>=4.9.3

@@ -57,7 +57,7 @@ async def bookdl(message: Message):
 
         f.write("By Pepe.")
         f.close()
-        caption = "By Doge.\nJoin @LazyAF_Geng peeps"
+        caption = "By Pepe.\nJoin @LazyAF_Geng peeps"
 
         await message.client.send_document(
             message.chat.id,
