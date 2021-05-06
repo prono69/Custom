@@ -38,4 +38,4 @@ async def harem_steal(client, message):
         prs_anchor_element = prs_div.find("a")
         prs_text = prs_anchor_element.text
         out_str = f"/protecc {prs_text}"
-    await message.reply(out_str, parse_mode="markdown", del_in=3)
+    await message.reply(out_str, parse_mode="markdown")
