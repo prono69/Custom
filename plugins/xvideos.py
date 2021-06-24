@@ -8,7 +8,7 @@ from userge import userge, Message
 
 @userge.on_cmd("xvdo", about={
     'header': "Get Sax from xvideos",
-    'description': "Get free Sax Videos",
+    'description': "Get direct DL link from xvideos",
     'usage': "{tr}xvdo (xvideo_link)"})
 async def xvid(message:Message):
     editer= await message.edit("`Please Wait.....`")

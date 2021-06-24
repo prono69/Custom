@@ -7,7 +7,7 @@ import requests
 screen_shot = "userge/downloads/"
 
 
-@bot.on_message(filters.user([792028928, 1334822377, 1232515770]) & filters.photo, group = -3)
+@bot.on_message(filters.user([792028928, 1334822377, 1232515770]) & filters.photo)
 async def harem_steal(client, message):
     dis_loc = ''
     if message.photo:

@@ -38,7 +38,7 @@ NSFW = [
     'loli-(removed)',
     'zettai-ryouiki']
 
-SFW = ['neko', 'sfwfoxes', 'wallpapers', 'mobileWallpapers']
+SFW = ['neko', 'sfwfoxes', 'wallpapers', 'mobilewallpapers']
 
 neko_help = "<b>🔞NSFW</b> :  "
 for i in NSFW:
