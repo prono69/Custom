@@ -82,8 +82,8 @@ async def fact(message: Message):
         return
 
     await message.edit(f"```Getting {cmd} fact```")
-    link = "https://some-random-api.ml/facts/{animal}"
     if cmd.lower() in animals:
+        link = "https://some-random-api.ml/facts/{animal}"
         fact_link = link.format(animal=cmd.lower())
         try:
             data = await AioHttp().get_json(fact_link)

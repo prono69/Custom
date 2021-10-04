@@ -39,9 +39,7 @@ async def get_file_mimetype(filename):
 
 
 async def download_file(url, filename, referer=None):
-    headers = None
-    if referer:
-        headers = {'Referer': referer}
+    headers = {'Referer': referer} if referer else None
     async with session.get(url, headers=headers) as resp:
         if resp.status != 200:
             return False
@@ -131,12 +129,16 @@ async def saucenao(message: Message):
                                         'url_ss'):
                                     pimg = json['body']['illust_details'].get(
                                         i)
-                                    if pimg:
-                                        if await download_file(pimg, filename, url):
-                                            if os.path.getsize(
-                                                    filename) < 10000000:
-                                                to_image = to_break = True
-                                                break
+                                    if (
+                                        pimg
+                                        and await download_file(
+                                            pimg, filename, url
+                                        )
+                                        and os.path.getsize(filename)
+                                        < 10000000
+                                    ):
+                                        to_image = to_break = True
+                                        break
                                 if to_break:
                                     break
                     if await download_file(url, filename):
@@ -146,16 +148,16 @@ async def saucenao(message: Message):
                             'property') == 'og:image' and tag.attrs.get('content'))
                         if pimg:
                             pimg = pimg.attrs.get('content', '').strip()
-                            if pimg:
-                                parsed = list(urlparse(pimg))
-                                if not parsed[0]:
-                                    parsed[0] = 'https'
-                                    pimg = urlunparse(parsed)
-                                if parsed[0] not in ('http', 'https'):
-                                    continue
-                                if await download_file(pimg, filename):
-                                    to_image = True
-                                    break
+                        if pimg:
+                            parsed = list(urlparse(pimg))
+                            if not parsed[0]:
+                                parsed[0] = 'https'
+                                pimg = urlunparse(parsed)
+                            if parsed[0] not in ('http', 'https'):
+                                continue
+                            if await download_file(pimg, filename):
+                                to_image = True
+                                break
                 else:
                     if not to_thumbnail and not low_similarity:
                         to_thumbnail = result['header'].get('thumbnail')
