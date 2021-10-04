@@ -18,11 +18,9 @@ from userge import userge, Message
                "header": "Convert Python Codes To Highlighted Html / Image",
                "usage": "{tr}pcode (replying to py file)"})
 async def convert_to_image_or_html(message: Message):
-    force_html = False
     msg_ = await message.edit("`Please Wait!`")
     t = message.input_str
-    if t:
-        force_html = True
+    force_html = bool(t)
     if not message.reply_to_message:
         await msg_.edit("`Please Reply To A Python Document.`", del_in=3)
         return
