@@ -53,18 +53,18 @@ async def hugs(message: Message):
 
     if "-g" in message.flags:
         await message.client.send_animation(
-            message.chat.id, await get_link("-g"), caption=f"**UwU hugged {username}**", **kwargs
+            message.chat.id, await get_link("-g"), caption=f"**UwU hugged {username} !**", **kwargs
         )
     elif "-k" in message.flags:
         await message.client.send_animation(
-            message.chat.id, await get_link("-k"), caption=f"**OwO kissed {username}**", **kwargs
+            message.chat.id, await get_link("-k"), caption=f"**OwO kissed {username} !**", **kwargs
         )
     elif "-w" in message.flags:
         await message.client.send_animation(
-            message.chat.id, await get_link("-w"), caption=f"**UwU winked at {username}**", **kwargs
+            message.chat.id, await get_link("-w"), caption=f"**UwU winked at {username} !**", **kwargs
         )
     else:
         kwargs.pop("unsave")
-        await message.reply_photo(await get_link("-d"), caption=f"**UwU hugged {username}**", **kwargs)
+        await message.reply_photo(await get_link("-d"), caption=f"**UwU hugged {username} !**", **kwargs)
 
     await message.delete()
