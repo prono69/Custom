@@ -15,6 +15,7 @@ NSFW = [
     'femdom',
     'hentai',
     'maid',
+    'maids',
     'orgy',
     'panties',
     'nsfwwallpapers',
@@ -35,7 +36,7 @@ NSFW = [
     'masturbation',
     'school',
     'yuri',
-    'loli-(removed)',
+    'succubus',
     'zettai-ryouiki']
 
 SFW = ['neko', 'sfwfoxes', 'wallpapers', 'mobilewallpapers']

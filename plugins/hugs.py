@@ -8,7 +8,8 @@ MAP_LINK = {
     "-g": "https://nekos.life/api/hug",
     "-k": "https://nekos.life/api/kiss",
     "-d": "https://api.computerfreaker.cf/v1/hug",
-    "-w": "https://some-random-api.ml/animu/wink"
+    "-w": "https://some-random-api.ml/animu/wink",
+    "-s": "https://api.rei.my.id/v2/slap"
 }
 
 
@@ -26,7 +27,8 @@ async def get_link(arg: str) -> str:
     'flags': {
               '-g': "For hug gif",
               '-k': "For kiss gif",
-              '-w': "For wink gif"
+              '-w': "For wink gif",
+              '-s': "For slap gif"
              },
     'usage': "{tr}hug [reply | username]"
              "\n{tr}hug -g [reply | username]"
@@ -63,6 +65,8 @@ async def hugs(message: Message):
         await message.client.send_animation(
             message.chat.id, await get_link("-w"), caption=f"**UwU winked at {username} !**", **kwargs
         )
+    elif "-s" in message.flags:
+    	await message.client.send_animation(message.chat.id, await get_link("-s"), caption=f"**Slapped {username}**", **kwargs
     else:
         kwargs.pop("unsave")
         await message.reply_photo(await get_link("-d"), caption=f"**UwU hugged {username} !**", **kwargs)
