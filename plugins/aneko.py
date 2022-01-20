@@ -6,40 +6,40 @@ from userge.utils import rand_array
 from userge.plugins.fun.nekos import send_nekos
 
 NSFW = [
-    'lewdneko',
-    'random',
     'ass',
     'bdsm',
+    'blowjob',
     'cum',
+    'cumslut',
     'doujin',
+    'feet',
     'femdom',
+    'foxgirl',
+    'gangbang',
+    'gif',
+    'glasses',
     'hentai',
+    'lewdneko',
     'maid',
     'maids',
+    'masturbation',
+    'netorare',
+    'nsfwmobilewallpapers',
+    'nsfwwallpapers',
     'orgy',
     'panties',
-    'nsfwwallpapers',
-    'nsfwmobilewallpapers',
-    'netorare',
-    'gif',
-    'blowjob',
-    'feet',
     'pussy',
+    'random',
+    'school',
+    'succubus',
+    'tentacles',
+    'thighs',
     'uglybastard',
     'uniform',
-    'gangbang',
-    'foxgirl',
-    'cumslut',
-    'glasses',
-    'thighs',
-    'tentacles',
-    'masturbation',
-    'school',
     'yuri',
-    'succubus',
     'zettai-ryouiki']
 
-SFW = ['neko', 'sfwfoxes', 'wallpapers', 'mobilewallpapers']
+SFW = ['mobilewallpapers', 'neko', 'sfwfoxes', 'wallpapers']
 
 neko_help = "<b>🔞NSFW</b> :  "
 for i in NSFW:
@@ -79,4 +79,3 @@ async def akaneko(message: Message):
         await send_nekos(message, link)
     except Exception:
         await message.err("Nothing to send :(", del_in=4)
-        
