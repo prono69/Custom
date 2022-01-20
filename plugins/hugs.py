@@ -66,7 +66,7 @@ async def hugs(message: Message):
             message.chat.id, await get_link("-w"), caption=f"**UwU winked at {username} !**", **kwargs
         )
     elif "-s" in message.flags:
-    	await message.client.send_animation(message.chat.id, await get_link("-s"), caption=f"**Slapped {username}**", **kwargs
+    	await message.client.send_animation(message.chat.id, await get_link("-s"), caption=f"**Slapped {username}**", **kwargs)
     else:
         kwargs.pop("unsave")
         await message.reply_photo(await get_link("-d"), caption=f"**UwU hugged {username} !**", **kwargs)
