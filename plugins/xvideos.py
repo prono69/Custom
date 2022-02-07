@@ -56,7 +56,12 @@ async def xvidsearch(message: Message):
             semd = link.split("/")[2]
 
             links += f"<a href='https://www.xvideos.com{link}'>• {semd.upper()}</a>\n"
-        await editer.edit(f"<b>Search Query:</b> <code>{msg}</code>\n\n" + links,parse_mode="HTML", disable_web_page_preview=True)
+        await editer.edit(
+            f'<b>Search Query:</b> <code>{msg}</code>\n\n{links}',
+            parse_mode="HTML",
+            disable_web_page_preview=True,
+        )
+
 
 
     except Exception:

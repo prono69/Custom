@@ -25,7 +25,7 @@ async def get_file_ext(filename):
         mimetype = await get_file_mimetype(filename)
         ext = mimetypes.guess_extension(mimetype) or '.bin'
     if not ext.startswith('.'):
-        ext = '.' + ext
+        ext = f'.{ext}'
     return ext
 
 
