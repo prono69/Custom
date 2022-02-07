@@ -28,11 +28,7 @@ QUOTE_TEMPLATE = """
              "\n{tr}aq -c Pico"
 })
 async def anime_quote(message: Message):
-    # Get desired endpoints
-    input_text = message.filtered_input_str
-    reply: Message = message.reply_to_message
-    reply_id = reply.message_id if reply else None
-    if input_text:
+    if input_text := message.filtered_input_str:
         if "-a" in message.flags:
             url = f"https://animechan.vercel.app/api/quotes/anime?title={input_text}"
         elif "-c" in message.flags:
@@ -40,6 +36,8 @@ async def anime_quote(message: Message):
     else:
         url = "https://animechan.vercel.app/api/random"
 
+    reply: Message = message.reply_to_message
+    reply_id = reply.message_id if reply else None
     try:
         async with aiohttp.ClientSession() as requests:
             data = await (await requests.get(url)).json()
