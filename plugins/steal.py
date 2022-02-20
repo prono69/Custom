@@ -15,8 +15,7 @@ async def harem_steal(client, message):
             message=message.photo,
             file_name=screen_shot
         )
-        dis_loc = os.path.join(screen_shot, os.path.basename(dis))
-        if dis_loc:
+        if dis_loc := os.path.join(screen_shot, os.path.basename(dis)):
             base_url = "http://www.google.com"
             search_url = "{}/searchbyimage/upload".format(base_url)
             multipart = {

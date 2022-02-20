@@ -17,7 +17,6 @@ session = aiohttp.ClientSession()
 )
 async def loli(message: Message):
     "FBI moment"
-    word = message.filtered_input_str
     mode = None
     if "-s" in message.flags:
     	mode = 0
@@ -25,6 +24,7 @@ async def loli(message: Message):
     	mode = 1
     else:
     	mode = 2
+    word = message.filtered_input_str
     async with session.get(
         f"https://api.lolicon.app/setu/v2?num=1&r18={mode}&keyword={urlencode(word)}"
     ) as resp:
@@ -37,10 +37,8 @@ async def loli(message: Message):
     pic = data["urls"]["original"]
     title = f'{data["title"]} by {data["author"]}'
     adult = f'{data["r18"]}'
-    tags = None
     caption = f'<a href="https://pixiv.net/artworks/{data["pid"]}">{html.escape(data["title"])}</a> by <a href="https://pixiv.net/users/{data["uid"]}">{html.escape(data["author"])}</a>\n'
-    if data["tags"]:
-        tags = f'{html.escape(", ".join(data["tags"]))}'
+    tags = f'{html.escape(", ".join(data["tags"]))}' if data["tags"] else None
     lol = f"<b>{caption}</b>\n<b>✘ Title:</b> <i>{title}</i>\n<b>✘ Adult:</b> <i>{adult}</i>\n<b>"
     await message.delete()
     await message.client.send_photo(

@@ -31,9 +31,8 @@ async def bookdl(message: Message):
     if not book:
         await pablo.edit("`Please Give Me A Valid Input. You Can Check Help Menu To Know More!`", del_in=3)
         return
-    lin = "https://b-ok.cc/s/"
     text = book
-    link = lin + text
+    link = f'https://b-ok.cc/s/{text}'
     page = requests.get(link)
     soup = BeautifulSoup(page.content, "html.parser")
     f = open("book.txt", "w")
@@ -50,7 +49,7 @@ async def bookdl(message: Message):
                 for ts in td.find_all("a",
                                       attrs={"href": re.compile("^/book/")}):
                     ref = ts.get("href")
-                    link = "https://b-ok.cc" + ref
+                    link = f'https://b-ok.cc{ref}'
 
                 f.write("\n" + title)
                 f.write("\nBook link:- " + link + "\n\n")
