@@ -3,7 +3,7 @@
 import requests
 from userge import userge, Message
 from userge.utils import rand_array
-from userge.plugins.fun.nekos import send_nekos
+from userge.plugins.custom.nekos import send_nekos
 
 NSFW = [
     'ass',
