@@ -11,7 +11,7 @@ from typing import Dict, Tuple, List
 from pornhub_api import PornhubApi
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, InlineQueryResultArticle, InputTextMessageContent
 
-from userge import userge, filters, Config
+from userge import userge, filters, config
 
 CB_PATTERN = re.compile(r"PS(\d+):([\-\w]+)")
 time_token = lambda: base64.urlsafe_b64encode(
@@ -69,7 +69,7 @@ async def _ph_ps_callback_handler(_, event):
 
 @userge.bot.on_inline_query(filters.regex("ph(.*)"), group=-1)
 async def inline_id_handler(_, event):
-    if event.from_user.id not in Config.OWNER_ID:
+    if event.from_user.id not in config.OWNER_ID:
         resultm = [InlineQueryResultArticle(
             title="• [NIKAL LAWDE] •",
             input_message_content=InputTextMessageContent("!!!!!NONE!!!!!"),

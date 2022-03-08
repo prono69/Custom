@@ -6,7 +6,7 @@ import asyncio
 
 from pyrogram.errors import FloodWait, PeerIdInvalid
 
-from userge import Config, Message, get_collection, userge
+from userge import config, Message, get_collection, userge
 from userge.utils import msg_type, get_response
 
 COPIED = get_collection("COPIED")
@@ -96,7 +96,7 @@ async def copy_message(message: Message):
             "`Reply to a message to put it in copied list...`", del_in=5
         )
     await message.edit("`Copying...`")
-    log_ = Config.LOG_CHANNEL_ID
+    log_ = config.LOG_CHANNEL_ID
     info_ = await CHANNEL.log("### <b>COPIED MESSAGE BELOW</b> ###")
     fwd_ = await reply_.forward(log_)
     link_ = fwd_.link
@@ -136,7 +136,7 @@ async def copied_messages(message: Message):
 async def paste_message(message: Message):
     """paste the message copied in database"""
     await message.edit("`Pasting copied messages...`", del_in=3)
-    log_ = Config.LOG_CHANNEL_ID
+    log_ = config.LOG_CHANNEL_ID
     suc = 0
     fail = 0
     async for msg_ in COPIED.find():

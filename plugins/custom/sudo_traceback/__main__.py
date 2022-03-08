@@ -1,6 +1,6 @@
 # Made for USERGE-X by @Kakashi_HTK(tg)/@ashwinstr(gh)
 
-from userge import Config, Message, userge
+from userge import config, Message, userge
 from userge.utils import post_to_telegraph, msg_type
 
 
@@ -26,7 +26,7 @@ async def last_logged(message: Message):
     await message.edit("`Looking for last traceback...`")
     num = 0
     me_ = (await userge.get_me()).first_name
-    async for msg_ in userge.search_messages(Config.LOG_CHANNEL_ID):
+    async for msg_ in userge.search_messages(config.LOG_CHANNEL_ID):
         if msg_type(msg_) == "text":
             num += 1
             if "-e" in message.flags:
