@@ -73,7 +73,7 @@ async def akaneko(message: Message):
 
     await message.delete()
     k = requests.get(
-        f"https://akaneko-api.herokuapp.com/api/{choosen_}").json()
+        f"http://cuteasfubuki.cf/api/{choosen_}").json()
     link = k.get("url")
     try:
         await send_nekos(message, link)
